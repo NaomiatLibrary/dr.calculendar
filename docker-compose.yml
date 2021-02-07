@@ -25,7 +25,7 @@ services:
      - '3000:3000'
    volumes:
      - ./drcalculendar:/app
-   working_dir: /app
+   working_dir: /usr/src/app
    command: npm run watch
    networks:
      - default
