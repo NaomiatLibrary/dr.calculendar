@@ -3,4 +3,8 @@ extends layout
 block content
   h1 Dr.Calculendar
   a Dr.Calculendar
-  p このページは#{title}によって作られました
+  p このページは#{title}によって作られました!!!!!
+  form(action="/" method="post")
+    .name
+      label name
+      input(type="text" name="name")

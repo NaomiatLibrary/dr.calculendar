@@ -1,5 +1,7 @@
 # dr.calculendar
 
+## ファイル構成
+```
 drcalculendar
 ├── app.js...expressアプリケーション本体
 ├── bin
@@ -17,3 +19,14 @@ drcalculendar
     ├── error.pug
     ├── index.pug
     └── layout.pug
+```
+## 開発
+```
+docker-compose  up -d
+```
+```
+cd drcalculendar/
+npm install
+node_modules/.bin/sequelize init
+npm run start
+```
