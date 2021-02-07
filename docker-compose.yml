@@ -13,18 +13,19 @@ services:
    networks:
      - default
  app:
-   build:
-    context: .
-    dockerfile: Dockerfile
+   #build:
+   # context: .
+   # dockerfile: Dockerfile
+   image: node:12
    env_file: ./app.env
    environment:
      - TZ=Asia/Tokyo
      - DEBUG=app:*
    tty: true
    ports:
-     - '3000:3000'
+     - '3232:3000'
    volumes:
-     - ./drcalculendar:/app
+     - ./drcalculendar:/usr/src/app
    working_dir: /usr/src/app
    command: npm run watch
    networks:

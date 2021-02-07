@@ -22,8 +22,13 @@ drcalculendar
 ```
 ## 開発
 ```
-docker-compose build
+cd drcalculendar
+npm install
+cd ..
 docker-compose  up -d
+```
+```
+docker image prune
 ```
 ```
 cd drcalculendar/

@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var models = require('../models');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -12,11 +13,8 @@ async function sha256(text){
 }
 router.post('/', function(req, res, next) {
   //データベースにこれを入れる
-  //データベースの次のidを取得
-  let next_id=0;
-  //それを元にハッシュ値を生成
-  let hash=sha256(next_id);
-  res.json({eventid:hash,name:req.body.name});
+  models.events.create({name:req.body.name});
+  res.json({name:req.body.name});
 });
 
 module.exports = router;
