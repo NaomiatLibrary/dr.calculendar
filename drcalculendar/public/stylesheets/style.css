@@ -9,7 +9,6 @@ header {
 header a{
   color:black;
 }
-
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -17,4 +16,9 @@ body {
 
 a {
   color: #00B7FF;
+}
+error_message {
+  background-color: red;
+  color: white;
+  font-style: bold;
 }

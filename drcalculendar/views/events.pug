@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1 予定#{id}のページです
+  p イベントの名前#{name}
+  p 合計#{sum}
+  form(action="/events" method="post")
+    .num
+      label num
+      input(type="int" name="num")
+    .eventid
+      input(type="hidden" name="eventid" value=id)
