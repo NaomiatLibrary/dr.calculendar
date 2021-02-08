@@ -20,9 +20,9 @@ block content
       label かかる時間(分)
       input(type="number" name="duration")
     .firsttime
-      label 開始時間にできる最初の時刻
-      input(type="number" name="firsttime")
+      label 開始時間にできる最初の時刻(例:"15:00")
+      input(type="time" name="firsttime")
     .lasttime
-      label 終了時間にできる最後の時刻
-      input(type="number" name="lasttime")
+      label 終了時間にできる最後の時刻(例:"22:00")
+      input(type="time" name="lasttime")
     button(type="submit").btn.btn-large 送信

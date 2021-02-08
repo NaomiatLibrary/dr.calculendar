@@ -1,8 +1,8 @@
 extends layout
 
 block content
-  p 予定#{event.id}(#{event.eventid})のページです
   h1 イベント「#{event.name}」
+  p 予定#{event.id}(id=#{event.eventid})のページです
   ul
     li イベントの開始日 #{event.firstdate}
     li イベントの終了日 #{event.lastdate}

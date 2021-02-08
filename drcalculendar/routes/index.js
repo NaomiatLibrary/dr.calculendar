@@ -8,15 +8,16 @@ const Length = 40;
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
-async function sha256(text){
-  const uint8  = new TextEncoder().encode(text)
-  const digest = await crypto.subtle.digest('SHA-256', uint8)
-  return Array.from(new Uint8Array(digest)).map(v => v.toString(16).padStart(2,'0')).join('')
+function timetoint(text){
+  const words=text.split(':');
+  return 60*parseInt(words[0])+parseInt(words[1]);
 }
 router.post('/', function(req, res, next) {
-  console.log("hello");
   const _id = crypto.randomBytes(Length + 2).toString("base64");
   const id = _id.replace(/\W/g, '').substring(0, Length);
+  console.log(req.body.firsttime)
+  let firsttime=timetoint(req.body.firsttime);//ここで数字（分）に直す
+  let lasttime=timetoint(req.body.lasttime);
   //データベースにこれを入れる
   models.events.create({
     name:req.body.name,
@@ -24,8 +25,8 @@ router.post('/', function(req, res, next) {
     firstdate: req.body.firstdate,
     lastdate: req.body.lastdate,
     duration: req.body.duration,
-    firsttime: req.body.firsttime,
-    lasttime: req.body.lasttime
+    firsttime: firsttime,
+    lasttime: lasttime
   }).then(message => {
     //データベースに入れるのに成功したらページ遷移
     console.log(message);
