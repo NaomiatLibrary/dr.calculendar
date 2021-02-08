@@ -1,23 +1,32 @@
 extends layout
 
 block content
-  h1 予定#{id}(#{eventid})のページです
-  p イベントの名前#{name}
+  p 予定#{event.id}(#{event.eventid})のページです
+  h1 イベント「#{event.name}」
+  ul
+    li イベントの開始日 #{event.firstdate}
+    li イベントの終了日 #{event.lastdate}
+    li イベントの所要時間 #{event.duration}
+    li イベントの開始時刻 #{event.firsttime}
+    li イベントの終了時刻 #{event.lasttime}
   p 全ての参加者
   if all_data
     ul
       for data in all_data
-        li #{data.num}
+        li id#{data.id}:#{data.name} #{data.url}
           form(action="/events?_method=DELETE" method="POST")
             .eventid
-              input(type="hidden" name="eventid" value=eventid)
+              input(type="hidden" name="eventid" value=event.eventid)
             .dataid
               input(type="hidden" name="dataid" value=data.id)
             button(type="submit").btn.btn-danger 消去
-  p 合計#{sum}
   form(action="/events" method="post")
-    .num
-      label num
-      input(type="int" name="num")
+    .name
+      label 参加者の名前
+      input(type="text" name="name")
+    .url
+      label GoogleカレンダーのURL
+      input(type="text" name="url")
     .eventid
-      input(type="hidden" name="eventid" value=eventid)
+      input(type="hidden" name="eventid" value=event.eventid)
+    button(type="submit").btn.btn-large 新しい参加者を作成

@@ -14,7 +14,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   data.init({
-    num: DataTypes.BIGINT,
+    name: DataTypes.STRING,
+    url: DataTypes.STRING,
     eventid: DataTypes.STRING
   }, {
     sequelize,

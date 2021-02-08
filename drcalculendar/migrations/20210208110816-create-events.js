@@ -8,11 +8,26 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      eventid: {
+        type: Sequelize.STRING
+      },
       name: {
         type: Sequelize.STRING
       },
-      eventid: {
-        type: Sequelize.STRING
+      firstdate: {
+        type: Sequelize.DATEONLY
+      },
+      lastdate: {
+        type: Sequelize.DATEONLY
+      },
+      duration: {
+        type: Sequelize.INTEGER
+      },
+      firsttime: {
+        type: Sequelize.INTEGER
+      },
+      lasttime: {
+        type: Sequelize.INTEGER
       },
       created_at: {
         allowNull: false,

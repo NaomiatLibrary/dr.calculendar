@@ -5,8 +5,24 @@ block content
   a Dr.Calculendar
   p このページは#{title}によって作られました!!!!!
   if error
-    error_message 登録に失敗しました
+    error_message 登録に失敗しました:#{error}
   form(action="/" method="post")
     .name
       label name
       input(type="text" name="name")
+    .firstdate
+      label 最初の日付
+      input(type="date" name="firstdate")
+    .lastdate
+      label 最後の日付
+      input(type="date" name="lastdate")
+    .duration
+      label かかる時間(分)
+      input(type="number" name="duration")
+    .firsttime
+      label 開始時間にできる最初の時刻
+      input(type="number" name="firsttime")
+    .lasttime
+      label 終了時間にできる最後の時刻
+      input(type="number" name="lasttime")
+    button(type="submit").btn.btn-large 送信

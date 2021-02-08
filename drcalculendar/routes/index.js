@@ -20,7 +20,12 @@ router.post('/', function(req, res, next) {
   //データベースにこれを入れる
   models.events.create({
     name:req.body.name,
-    eventid:id
+    eventid:id,
+    firstdate: req.body.firstdate,
+    lastdate: req.body.lastdate,
+    duration: req.body.duration,
+    firsttime: req.body.firsttime,
+    lasttime: req.body.lasttime
   }).then(message => {
     //データベースに入れるのに成功したらページ遷移
     console.log(message);
