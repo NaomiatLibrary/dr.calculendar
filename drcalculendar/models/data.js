@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   };
   data.init({
     num: DataTypes.BIGINT,
-    eventid: DataTypes.INTEGER
+    eventid: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'data',

@@ -12,8 +12,8 @@ router.get('/', function(req, res, next) {
       sum+=datum.num;
     })
   })
-  models.events.findByPk(req.query.id).then(event => {
-    res.render('events', {"id":req.query.id,"name":event.name,"sum":sum,"all_data":all_data});
+  models.events.findOne({ where: { eventid: req.query.id }}).then(event => {
+    res.render('events', {"id":event.id,"eventid":event.eventid,"name":event.name,"sum":sum,"all_data":all_data});
   }).catch(err=>{
     console.log(err);
     res.redirect("/");
@@ -41,13 +41,8 @@ router.post('/', function(req, res, next) {
 router.delete('/', function(req, res, next) {
   let eventid=req.body.eventid;
   let dataid=req.body.dataid;
-  console.log(eventid);
-  console.log(dataid);
   models.data.findByPk(dataid).then(data => {
     if(data.eventid==eventid){
-      data.destroy();
-    }else{
-      //何もしない
       data.destroy();
     }
   }).catch(err=>{

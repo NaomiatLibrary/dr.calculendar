@@ -1,7 +1,7 @@
 extends layout
 
 block content
-  h1 予定#{id}のページです
+  h1 予定#{id}(#{eventid})のページです
   p イベントの名前#{name}
   p 全ての参加者
   if all_data
@@ -10,7 +10,7 @@ block content
         li #{data.num}
           form(action="/events?_method=DELETE" method="POST")
             .eventid
-              input(type="hidden" name="eventid" value=id)
+              input(type="hidden" name="eventid" value=eventid)
             .dataid
               input(type="hidden" name="dataid" value=data.id)
             button(type="submit").btn.btn-danger 消去
@@ -20,4 +20,4 @@ block content
       label num
       input(type="int" name="num")
     .eventid
-      input(type="hidden" name="eventid" value=id)
+      input(type="hidden" name="eventid" value=eventid)

@@ -12,7 +12,7 @@ module.exports = {
         type: Sequelize.BIGINT
       },
       eventid: {
-        type: Sequelize.BIGINT
+        type: Sequelize.STRING
       },
       created_at: {
         allowNull: false,

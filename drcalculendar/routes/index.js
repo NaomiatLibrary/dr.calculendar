@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var models = require('../models');
+const crypto = require("crypto");
+const Length = 40;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -13,13 +15,16 @@ async function sha256(text){
 }
 router.post('/', function(req, res, next) {
   console.log("hello");
+  const _id = crypto.randomBytes(Length + 2).toString("base64");
+  const id = _id.replace(/\W/g, '').substring(0, Length);
   //データベースにこれを入れる
   models.events.create({
-    name:req.body.name
+    name:req.body.name,
+    eventid:id
   }).then(message => {
     //データベースに入れるのに成功したらページ遷移
     console.log(message);
-    res.redirect(req.baseUrl + '/events?id='+String(message.id));
+    res.redirect(req.baseUrl + '/events?id='+String(message.eventid));
   }).catch(err => {
     //失敗したらページを遷移せず警告を表示
     // catch error if anything goes wrong
