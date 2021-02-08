@@ -3,6 +3,17 @@ extends layout
 block content
   h1 予定#{id}のページです
   p イベントの名前#{name}
+  p 全ての参加者
+  if all_data
+    ul
+      for data in all_data
+        li #{data.num}
+          form(action="/events?_method=DELETE" method="POST")
+            .eventid
+              input(type="hidden" name="eventid" value=id)
+            .dataid
+              input(type="hidden" name="dataid" value=data.id)
+            button(type="submit").btn.btn-danger 消去
   p 合計#{sum}
   form(action="/events" method="post")
     .num

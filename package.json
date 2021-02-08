@@ -16,7 +16,5 @@
     "url": "https://github.com/NaomiatLibrary/dr.calculendar/issues"
   },
   "homepage": "https://github.com/NaomiatLibrary/dr.calculendar#readme",
-  "dependencies": {
-    "express": "^4.17.1"
-  }
+  "dependencies": {}
 }
