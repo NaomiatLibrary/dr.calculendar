@@ -106,4 +106,5 @@ dist
 ## database config
 /drcalculendar/config/config.json
 /*.env
-
+credentials.json
+token.json

@@ -20,6 +20,11 @@ block content
             .dataid
               input(type="hidden" name="dataid" value=data.id)
             button(type="submit").btn.btn-danger 消去
+  p 全ての予定
+  if all_schedules
+    ul
+      for schedule in all_schedules
+        li #{schedule.startdate} #{schedule.starttime} #{schedule.enddate} #{schedule.endtime}
   form(action="/events" method="post")
     .name
       label 参加者の名前
